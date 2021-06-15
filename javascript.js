@@ -11,3 +11,24 @@
 //display saved event for the day/hour
 //use an if statement to determine if they are first time user
 //find a way to load previous events and allow the user to add to the list
+;(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    global.moment = factory()
+}(this, (function () { 'use strict';
+
+    var hookCallback;
+
+    function hooks() {
+        return hookCallback.apply(null, arguments);
+    }
+
+    // This is done to register the method called with moment()
+    // without creating circular dependencies.
+    function setHookCallback(callback) {
+        hookCallback = callback;
+    };
+
+
+
+moment().format('MMMM Do YYYY, h:mm:ss a')})))

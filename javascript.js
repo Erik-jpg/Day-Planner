@@ -11,24 +11,37 @@
 //display saved event for the day/hour
 //use an if statement to determine if they are first time user
 //find a way to load previous events and allow the user to add to the list
-// ;(function (global, factory) {
-//     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-//     typeof define === 'function' && define.amd ? define(factory) :
-//     global.moment = factory()
-// }(this, (function () { 'use strict';
 
-//     var hookCallback;
 
-//     function hooks() {
-//         return hookCallback.apply(null, arguments);
-//     }
-
-//     // This is done to register the method called with moment()
-//     // without creating circular dependencies.
-//     function setHookCallback(callback) {
-//         hookCallback = callback;
-//     };
+//get and set section of momentjs.com
+//get hour
+const currentDay = document.getElementById('currentDay');
+currentDay.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+// $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
 
 
 
-document.getElementById("clock").changeInnerText = moment.UTC().format()})));
+// var datetime = null,
+//         date = null;
+
+// var update = function () {
+//     date = moment(new Date())
+//     datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+// };
+
+// $("#currentDay").ready(function(){
+//     datetime = $('#datetime')
+//     update();
+//     setInterval(update, 1000);
+// });
+// console.log($("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a')));
+// function displayTime() {
+//     const refresh=1000;
+//     myTime=setTimeout('display_ct', refresh)
+// };
+
+// function displayTimer(){
+//     const x = new Date()
+//         document.getElementById('currentDay').innerHTML = x;
+//     display_c();
+// }

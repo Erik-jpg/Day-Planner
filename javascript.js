@@ -11,37 +11,24 @@
 //display saved event for the day/hour
 //use an if statement to determine if they are first time user
 //find a way to load previous events and allow the user to add to the list
+const nowMoment = moment();
+const nowDate = new Date;
+const eDisplayMoment = document.querySelector("#displayMoment");
+const eDisplayDate = document.querySelector("#displayDate");
+const hourBlock = document.querySelector("#time-block");
+ 
+function instantiateMoment(){
+    eDisplayMoment.innerHTML = moment().format('MMMM Do YYYY, hh:mm:ss a');
+}
 
+setInterval (() => {
+    instantiateMoment();
+}, 1000);
 
-//get and set section of momentjs.com
-//get hour
-const currentDay = document.getElementById('currentDay');
-currentDay.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
-// $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+ if (moment()!== nowMoment) {
+    hourBlock.classList.add(".past");
+}
 
-
-
-// var datetime = null,
-//         date = null;
-
-// var update = function () {
-//     date = moment(new Date())
-//     datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
-// };
-
-// $("#currentDay").ready(function(){
-//     datetime = $('#datetime')
-//     update();
-//     setInterval(update, 1000);
-// });
-// console.log($("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a')));
-// function displayTime() {
-//     const refresh=1000;
-//     myTime=setTimeout('display_ct', refresh)
-// };
-
-// function displayTimer(){
-//     const x = new Date()
-//         document.getElementById('currentDay').innerHTML = x;
-//     display_c();
-// }
+else if (moment()=== nowMoment) {
+    hourBlock.classList.add(".present");
+}

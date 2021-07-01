@@ -46,6 +46,7 @@ localStorage.setItem(hourBlock, textBlockElement);
 if (localStorage.getItem == null) {
   return "";
 }
+// const stuffFromLocalStorage = localStorage.getItem
 localStorage.getItem('9am').value=document.querySelector('#9am');
 localStorage.getItem('10am').value=document.querySelector('#10am');
 localStorage.getItem('11am').value=document.querySelector('#11am');

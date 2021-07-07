@@ -12,71 +12,81 @@
 //use an if statement to determine if they are first time user
 //find a way to load previous events and allow the user to add to the list
 const nowMoment = moment();
-const nowDate = new Date();
-const eDisplayMoment = document.querySelector("#displayMoment");
-const eDisplayDate = document.querySelector("#displayDate");
+const displayMoment = document.querySelector("#displayMoment");
+const displayDate = document.querySelector("#displayDate");
 
 //connecting moment
 function instantiateMoment() {
-  eDisplayMoment.innerHTML = moment().format("MMMM Do YYYY, hh:mm:ss a");
+  displayMoment.innerHTML = moment().format("MM-DD-YYYY, hh:mm:ss a");
 }
+
 //having a continual updating clock that is visible to the user
 setInterval(() => {
   instantiateMoment();
 }, 1000);
 
-const clock = document.querySelector(".time-block");
+const clock = document.querySelectorAll(".time-block");
 const textBlockElement = document.querySelector(".textarea");
-const saveB = document.querySelector(".saveBtn");
+const saveBtn = document.querySelector(".saveBtn");
 const hourBlock = document.querySelectorAll(".hour");
 let schedule = [];
-const hourBlock9am = document.querySelector("#9am");
-const hourBlock10am = document.querySelector("#10am");
-const hourBlock11am = document.querySelector("#11am");
-const hourBlock12pm = document.querySelector("#12pm");
-const hourBlock13pm = document.querySelector("#13pm");
-const hourBlock14pm = document.querySelector("#14pm");
-const hourBlock15pm = document.querySelector("#15pm");
-const hourBlock16pm = document.querySelector("#16pm");
-const hourBlock17pm = document.querySelector("#17pm");
+const hourBlock9am = document.getElementById("9am");
+const hourBlock10am = document.getElementById("10am");
+const hourBlock11am = document.getElementById("11am");
+const hourBlock12pm = document.getElementById("12pm");
+const hourBlock13pm = document.getElementById("13pm");
+const hourBlock14pm = document.getElementById("14pm");
+const hourBlock15pm = document.getElementById("15pm");
+const hourBlock16pm = document.getElementById("16pm");
+const hourBlock17pm = document.getElementById("17pm");
 
-localStorage.setItem(hourBlock, textBlockElement);
+
 
 //to check if anything is stored in localStorage
-if (localStorage.getItem == null) {
-  return "";
+function checkHistory(callback) {
+  for (var i = 0; i < localStorage.length; i++) {
+    callback(localStorage.key(i));
+  }return "you got history!";
 }
-// const stuffFromLocalStorage = localStorage.getItem
-localStorage.getItem('9am').value=document.querySelector('#9am');
-localStorage.getItem('10am').value=document.querySelector('#10am');
-localStorage.getItem('11am').value=document.querySelector('#11am');
-localStorage.getItem('12pm').value=document.querySelector('#12pm');
-localStorage.getItem('13pm').value=document.querySelector('#13pm');
-localStorage.getItem('14pm').value=document.querySelector('#14pm');
-localStorage.getItem('15pm').value=document.querySelector('#15pm');
-localStorage.getItem('16pm').value=document.querySelector('#16pm');
-localStorage.getItem('17pm').value=document.querySelector('#17pm');
+checkHistory(console.log)
 
 
-//running a function with for loop and if, else if, else statement to change the color of the hourBlock
-function handleTime (hourBlockElement,hourBlock) {
+//running a function with for loop an if, else if, else statement to change the color of the hourBlock
+function handleTime (hourBlock, clock) {
     let thisHour = moment().format("HH");
-for (let i = 9; i < 17; i++) {
-    if (parseInt(hourBlockElement[i]) < parseInt(thisHour)) {
+for (let i = 0; i < 9; i++) {
+    if (parseInt(hourBlock[i].textContent) < parseInt(thisHour)) {
         clock[i].classList.add(".past");
-      } else if (parseInt(hourBlockElement[i])=== parseInt(thisHour)) {
+      } else if (parseInt(hourBlock[i].textContent)=== parseInt(thisHour)) {
         clock.classList.add(".present");
-      } else (parseInt(hourBlockElement[i]) > parseInt(thisHour)) 
-        hourBlock.classList.add(".future");
+      } else (parseInt(hourBlock[i].textContent) > parseInt(thisHour)) 
+        clock.classList.add(".future");
     }
 }
 
-console.log(handleTime);
-handleTime();
+handleTime(clock, textBlockElement);
+
+    
 
 
-//saving the user's input to localStorage and having a visual representation for accountability/ adjustment to the user's day 
-    function checkCalendar(localStorage) {
-        localStorage.getItem(hourBlock , hourBlockElement),value = hourBlockElement;
-        console.log(localStorage);
-    }
+
+
+
+// localStorage.getItem('9am').value= document.getElementById('9am');
+// localStorage.getItem('10am').value= document.getElementById('10am');
+// localStorage.getItem('11am').value= document.getElementById('11am');
+// localStorage.getItem('12pm').value= document.getElementById('12pm');
+// localStorage.getItem('13pm').value= document.getElementById('13pm');
+// localStorage.getItem('14pm').value= document.getElementById('14pm');
+// localStorage.getItem('15pm').value= document.getElementById('15pm');
+// localStorage.getItem('16pm').value= document.getElementById('16pm');
+// localStorage.getItem('17pm').value= document.getElementById('17pm');
+
+//saving the user's input to localStorage and having a visual representation for accountability/ adjustment to the user's day
+saveBtn.addEventListener("click", function(e) {
+  textBlockElement = document.getElementsByClassName('textarea').localStorage.setItem(hourBlock, textBlockElement.value);
+});
+
+
+  console.log(saveBtn);
+  

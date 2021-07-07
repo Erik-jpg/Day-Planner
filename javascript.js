@@ -56,11 +56,11 @@ function handleTime (hourBlock, clock) {
     let thisHour = moment().format("HH");
 for (let i = 0; i < 9; i++) {
     if (parseInt(hourBlock[i].textContent) < parseInt(thisHour)) {
-        clock[i].classList.add(".past");
-      } else if (parseInt(hourBlock[i].textContent)=== parseInt(thisHour)) {
-        clock.classList.add(".present");
+        hourBlock[i].classList.add(".past");
+      } else if (parseInt(hourBlock[i].textContent)== parseInt(thisHour)) {
+        hourBlock[i].classList.add(".present");
       } else (parseInt(hourBlock[i].textContent) > parseInt(thisHour)) 
-        clock.classList.add(".future");
+      hourBlock[i].classList.add(".future");
     }
 }
 
@@ -88,5 +88,5 @@ saveBtn.addEventListener("click", function(e) {
 });
 
 
-  console.log(saveBtn);
+  console.log(hourBlock);
   

@@ -26,7 +26,7 @@ setInterval(() => {
 }, 1000);
 
 const clock = document.querySelectorAll(".time-block");
-const textBlockElement = document.querySelector(".textarea");
+const textBlockElement = document.querySelector(".description");
 const saveBtn = document.querySelector(".saveBtn");
 const hourBlock = document.querySelectorAll(".hour");
 let schedule = [];
@@ -50,18 +50,18 @@ function checkHistory(callback) {
 }
 checkHistory(console.log)
 
-
+console.log(clock);
 //running a function with for loop an if, else if, else statement to change the color of the hourBlock
-function handleTime (hourBlock, clock) {
+function handleTime (hourBlock) {
     let thisHour = moment().format("HH");
 for (let i = 0; i < 9; i++) {
-    if (parseInt(hourBlock[i].textContent) < parseInt(thisHour)) {
-        hourBlock[i].classList.add(".past");
-      } else if (parseInt(hourBlock[i].textContent)== parseInt(thisHour)) {
-        hourBlock[i].classList.add(".present");
+    if (parseInt(hourBlock[i].textContent) < parseInt(thisHour)) {        
+      hourBlock[i].classList.add("past");
+      } else if (parseInt(hourBlock[i].textContent)=== parseInt(thisHour)) {        
+        hourBlock[i].classList.add("present");
       } else (parseInt(hourBlock[i].textContent) > parseInt(thisHour)) 
-      hourBlock[i].classList.add(".future");
-    }
+      hourBlock[i].classList.add("future");
+    }console.log(hourBlock);
 }
 
 handleTime(clock, textBlockElement);
@@ -84,9 +84,9 @@ handleTime(clock, textBlockElement);
 
 //saving the user's input to localStorage and having a visual representation for accountability/ adjustment to the user's day
 saveBtn.addEventListener("click", function(e) {
-  textBlockElement = document.getElementsByClassName('textarea').localStorage.setItem(hourBlock, textBlockElement.value);
+ localStorage.setItem(hourBlock, textBlockElement.value);
 });
 
 
-  console.log(hourBlock);
+  console.log(textBlockElement);
   

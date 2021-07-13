@@ -13,20 +13,9 @@ setInterval(() => {
 }, 1000);
 
 const clock = document.querySelectorAll(".time-block");
-const blockElement = document.querySelector(".hour");
+const blockElement = document.querySelectorAll(".hour");
 const saveBtn = document.querySelector(".saveBtn");
 const hourBlock = document.querySelectorAll(".description");
-let schedule = [];
-
-
-//to check if anything is stored in localStorage
-// function checkHistory(callback) {
-//   for (var i = 0; i < localStorage.length; i++) {
-//     callback(localStorage.key(i));
-//   }
-//   return "you got history!";
-// }
-// checkHistory(console.log);
 
 //running a function with for loop an if, else if, else statement to change the color of the hourBlock
 function handleTime(hourBlock) {
@@ -44,21 +33,31 @@ function handleTime(hourBlock) {
 
 handleTime(hourBlock);
 
-$(".saveBtn").on("click", function () {
-  
+$(".saveBtn").on("click", function (event) {
+event.preventDefault();  
   const savedText = $(this).siblings(".description").val();
-  const hour = $(this).parent().attr(".hour");
-  console.log(hour);
-  localStorage.setItem(hour, savedText);
+  const blockElement = $(this).parent().attr("id");
+  
+  console.log(blockElement);
+  localStorage.setItem(blockElement, savedText);
+  // localStorage.setItem('#9-am', savedText);
+  // localStorage.setItem('#10-am', savedText);
+  // localStorage.setItem('#11-am', savedText);
+  // localStorage.setItem('#12-pm', savedText);
+  // localStorage.setItem('#13-pm', savedText);
+  // localStorage.setItem('#14-pm', savedText);
+  // localStorage.setItem('#15-pm', savedText);
+  // localStorage.setItem('#16-pm', savedText);
+  // localStorage.setItem('#17-pm', savedText);
 });
 
-$(".hour .description").val(localStorage.getItem("9am"));
-$(".hour .description").val(localStorage.getItem("10am"));
-$(".hour .description").val(localStorage.getItem("11am"));
-$(".hour .description").val(localStorage.getItem("12pm"));
-$(".hour .description").val(localStorage.getItem("13pm"));
-$(".hour .description").val(localStorage.getItem("14pm"));
-$(".hour .description").val(localStorage.getItem("15pm"));
-$(".hour .description").val(localStorage.getItem("16pm"));
-$(".hour .description").val(localStorage.getItem("17pm"));
+$("#9-am .description").val(localStorage.getItem("9-am"));
+$("#10-am .description").val(localStorage.getItem("10-am"));
+$("#11-am .description").val(localStorage.getItem("11-am"));
+$('#12-pm .description').val(localStorage.getItem("12-pm"));
+$("#13-pm .description").val(localStorage.getItem("13-pm"));
+$("#14-pm .description").val(localStorage.getItem("14-pm"));
+$("#15-pm .description").val(localStorage.getItem("15-pm"));
+$("#16-pm .description").val(localStorage.getItem("16-pm"));
+$("#17-pm .description").val(localStorage.getItem("17-pm"));
 

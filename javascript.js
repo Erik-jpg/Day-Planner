@@ -40,15 +40,6 @@ event.preventDefault();
   
   console.log(blockElement);
   localStorage.setItem(blockElement, savedText);
-  // localStorage.setItem('#9-am', savedText);
-  // localStorage.setItem('#10-am', savedText);
-  // localStorage.setItem('#11-am', savedText);
-  // localStorage.setItem('#12-pm', savedText);
-  // localStorage.setItem('#13-pm', savedText);
-  // localStorage.setItem('#14-pm', savedText);
-  // localStorage.setItem('#15-pm', savedText);
-  // localStorage.setItem('#16-pm', savedText);
-  // localStorage.setItem('#17-pm', savedText);
 });
 
 $("#9-am .description").val(localStorage.getItem("9-am"));

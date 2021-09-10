@@ -22,14 +22,17 @@ function handleTime(hourBlock) {
   let thisHour = moment().format("HH");
   for (let i = 0; i < 9; i++) {
     if (parseInt(hourBlock[i].getAttribute("id")) < parseInt(thisHour)) {
-      hourBlock[i].classList.add("past");
-    } else if (parseInt(hourBlock[i].getAttribute("id")) === parseInt(thisHour)) {
-      hourBlock[i].classList.add("present");
-    } else {
-      hourBlock[i].classList.add("future");
+      hourBlock[i].classList.add("past")
+    } 
+    else if (parseInt(hourBlock[i].getAttribute("id")) === parseInt(thisHour)) {
+      hourBlock[i].classList.add("present")
+    } 
+    else {
+      hourBlock[i].classList.add("future")
     }
   } 
 }
+
 
 handleTime(hourBlock);
 
